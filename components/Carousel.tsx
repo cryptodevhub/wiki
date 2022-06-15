@@ -9,7 +9,7 @@ export default function Carousel({ title, body, slug, max, content }: Props) {
   return (
     <section>
       <div className="text-center mb-4">
-        <h2 className="text-2xl">
+        <h2 className="text-2xl text-primary">
           <Link href={slug}>
             <a>{title}</a>
           </Link>
