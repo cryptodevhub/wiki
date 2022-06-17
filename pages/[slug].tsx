@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import Date from '../components/Date'
 import ContentCard from '../components/Content'
 import { getContentBySlug, getAllContentSlugs, Content, getContentByTags } from '../lib/content'
 
@@ -71,9 +70,6 @@ export default function Show({
               <li key={author}>{(index ? ', ' : '') + author}</li>
             ))}
           </ul>
-          <p>
-            <Date date={content.updated} />
-          </p>
         </div>
         <div className="flex items-center justify-between">
           <ul>
