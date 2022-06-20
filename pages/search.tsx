@@ -44,14 +44,14 @@ export default function Search({ index, documents }: Props) {
       />
       <section>
         <div className="text-center mb-8">
-          <h1 className="font-bold text-4xl">Search</h1>
+          <h1 className="font-bold text-5xl md:text-6xl">Search</h1>
           <p className="text-md mt-2">
             Find Blockchain development tutorials, guides, tools, articles and more.
           </p>
         </div>
         <SearchComponent q={query} />
         {result.length > 0 && (
-          <ul className="grid gap-8 grid-cols-3 mt-8">
+          <ul className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {result.map((item) => (
               <li key={item.ref}>
                 <ContentCard content={documents[item.ref] as Content} />

@@ -20,7 +20,7 @@ export default function Show({
   if (embedded.length) {
     embedding = (
       <section>
-        <ul className="grid gap-8 grid-cols-3 mt-8">
+        <ul className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {embedded.map((content) => (
             <li key={content.slug}>
               <ContentCard content={content} />
@@ -37,7 +37,7 @@ export default function Show({
         <div className="divider my-14" />
         <h2 className="text-center text-2xl mb-6">You might also enjoy</h2>
         <section>
-          <ul className="grid gap-8 grid-cols-3">
+          <ul className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {related.slice(0, 3).map((content) => (
               <li key={content.slug}>
                 <ContentCard content={content} />
@@ -71,12 +71,12 @@ export default function Show({
             ))}
           </ul>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap">
           <ul>
             {content.tags.map((tag) => (
               <li
                 key={tag}
-                className="mr-2 badge badge-outline hover:badge-primary hover:badge-outline"
+                className="mr-2 mb-2 md:mb-0 badge badge-outline hover:badge-primary hover:badge-outline"
               >
                 <Link href={tag}>
                   <a>{tag}</a>
@@ -85,7 +85,12 @@ export default function Show({
             ))}
           </ul>
           {content.url && (
-            <a href={content.url} target="_blank" className="btn btn-primary" rel="noreferrer">
+            <a
+              href={content.url}
+              target="_blank"
+              className="btn btn-primary w-full sm:w-auto mt-4 md:mt-2 lg:mt-0"
+              rel="noreferrer"
+            >
               Go to Website
             </a>
           )}
