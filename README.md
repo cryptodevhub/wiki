@@ -4,6 +4,15 @@
 
 > The one-stop-shop for Blockchain- and Crypto developers. Learn Blockchain development, get a job in Crypto, grow your network.
 
+## Setup
+
+1. `git clone <url>`
+2. `pnpm install`
+3. `cp .env.example .env.local`
+4. `cp .env.example .env.production`
+5. Update `.env` files
+6. `pnpm run dev`
+
 ## Useful Commands
 
 ```sh
