@@ -4,7 +4,7 @@ import html from 'remark-html'
 import { remark } from 'remark'
 import matter from 'gray-matter'
 
-import { getAllFilePaths } from '../scripts/shared'
+import { getSlug, getAllFilePaths } from '../scripts/shared'
 
 const CONTENT_DIR_PATH = path.join(process.cwd(), 'content')
 
@@ -13,9 +13,8 @@ export function getContentBySlug(slug: string): Content | undefined {
 
   let found
   for (const filePath of filePaths) {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-    const content = getContent(fileContent)
-    if (content.slug === slug) {
+    const content = getContent(filePath)
+    if (getSlug(filePath) === slug) {
       found = content
       break
     }
@@ -27,10 +26,7 @@ export function getContentBySlug(slug: string): Content | undefined {
 export function getContentByTags(tags: string[], operator: Operator): Content[] {
   const filePaths = getAllFilePaths(CONTENT_DIR_PATH)
 
-  const all: Content[] = filePaths.map((filePath: string) => {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-    return getContent(fileContent)
-  })
+  const all: Content[] = filePaths.map((filePath: string) => getContent(filePath))
 
   let filtered
   if (operator === 'or') {
@@ -49,10 +45,7 @@ export function getContentByTags(tags: string[], operator: Operator): Content[] 
 export function getAllContent(): Content[] {
   const filePaths = getAllFilePaths(CONTENT_DIR_PATH)
 
-  const all: Content[] = filePaths.map((filePath: string) => {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-    return getContent(fileContent)
-  })
+  const all: Content[] = filePaths.map((filePath: string) => getContent(filePath))
 
   return sort(all)
 }
@@ -60,25 +53,25 @@ export function getAllContent(): Content[] {
 export function getAllContentSlugs(): Slug[] {
   const filePaths = getAllFilePaths(CONTENT_DIR_PATH)
 
-  return filePaths.map((filePath: string) => {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-    const content = getContent(fileContent)
-    return {
-      params: {
-        slug: content.slug
-      }
+  return filePaths.map((filePath: string) => ({
+    params: {
+      slug: getSlug(filePath)
     }
-  })
+  }))
 }
 
-function getContent(fileContent: string): Content {
-  const parsed = matter(fileContent)
+function getContent(filePath: string): Content {
+  const slug = getSlug(filePath)
+  const content = fs.readFileSync(filePath, 'utf-8')
+
+  const parsed = matter(content)
   const processed = remark().use(html).processSync(parsed.content)
+
   return {
+    slug,
     title: parsed.data.title,
     description: parsed.data.description,
     authors: parsed.data.authors,
-    slug: parsed.data.slug,
     tags: parsed.data.tags,
     created: parsed.data.created,
     updated: parsed.data.updated,

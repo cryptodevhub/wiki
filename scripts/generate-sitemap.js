@@ -2,10 +2,9 @@
 
 const fs = require('fs')
 const path = require('path')
-const matter = require('gray-matter')
 
 const { domain } = require('../core.config')
-const { getAllFilePaths } = require('./shared')
+const { getSlug, getAllFilePaths } = require('./shared')
 
 const PAGES_DIR_PATH = path.join(__dirname, '..', 'pages')
 const PUBLIC_DIR_PATH = path.join(__dirname, '..', 'public')
@@ -15,11 +14,7 @@ function main() {
   const pagesFilePaths = getAllFilePaths(PAGES_DIR_PATH)
   const contentFilePaths = getAllFilePaths(CONTENT_DIR_PATH)
 
-  const contentPaths = contentFilePaths.map((filePath) => {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-    const parsed = matter(fileContent)
-    return parsed.data.slug
-  })
+  const contentPaths = contentFilePaths.map((filePath) => getSlug(filePath))
 
   // TODO: Update filtering to use regex
   const pagePaths = pagesFilePaths.reduce((accum, filePath) => {

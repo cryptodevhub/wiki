@@ -3,7 +3,6 @@ title: 'Content 2'
 description: 'Content 2 Description'
 authors: ['John Doe', 'Jane Doe']
 url: 'https://example.com/content-2'
-slug: 'content-2'
 tags: ['foo', 'bar']
 created: '1970-01-02'
 updated: '1970-01-02'

@@ -3,7 +3,6 @@ title: 'Content 4'
 description: 'Content 4 Description'
 authors: ['Jane Doe']
 url: 'https://example.com/content-4'
-slug: 'content-4'
 tags: ['bar']
 created: '1970-01-04'
 updated: '1970-01-04'

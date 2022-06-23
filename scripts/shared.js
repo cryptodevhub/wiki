@@ -48,7 +48,12 @@ function getAllFilePaths(dirPath, fileArray = []) {
   return fileArray
 }
 
+function getSlug(filePath) {
+  return filePath.split(path.sep).pop().replace(/\.md$/, '')
+}
+
 module.exports = {
+  getSlug,
   getAllFilePaths,
   getTagFrequencies,
   CONTENT_DIR_PATH
