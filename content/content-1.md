@@ -4,7 +4,6 @@ description: 'Content 1 Description'
 authors: ['John Doe']
 url: 'https://example.com/content-1'
 tags: ['foo']
-created: '1970-01-01'
 updated: '1970-01-01'
 ---
 

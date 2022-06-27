@@ -73,7 +73,6 @@ function getContent(filePath: string): Content {
     description: parsed.data.description,
     authors: parsed.data.authors,
     tags: parsed.data.tags,
-    created: parsed.data.created,
     updated: parsed.data.updated,
     body: processed.toString(),
     url: parsed.data.url || null,
@@ -98,7 +97,6 @@ export type Content = {
   authors: string[]
   slug: string
   tags: string[]
-  created: string
   updated: string
   body: string
   url?: string
