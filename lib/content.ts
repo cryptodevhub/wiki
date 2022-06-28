@@ -60,6 +60,27 @@ export function getAllContentSlugs(): Slug[] {
   }))
 }
 
+export function getAllContentTags(): Slug[] {
+  const filePaths = getAllFilePaths(CONTENT_DIR_PATH)
+
+  const tags = filePaths
+    .map((filePath: string) => getContent(filePath))
+    .reduce<string[]>((accum, content) => {
+      if (content.tags) {
+        accum.push(...content.tags)
+      }
+      return accum
+    }, [])
+
+  const unique = Array.from(new Set(tags))
+
+  return unique.map((tag: string) => ({
+    params: {
+      slug: tag
+    }
+  }))
+}
+
 function getContent(filePath: string): Content {
   const slug = getSlug(filePath)
   const content = fs.readFileSync(filePath, 'utf-8')

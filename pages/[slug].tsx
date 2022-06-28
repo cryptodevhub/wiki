@@ -78,7 +78,7 @@ export default function Show({
                 key={tag}
                 className="mr-2 mb-2 md:mb-0 badge badge-outline hover:badge-primary hover:badge-outline"
               >
-                <Link href={tag}>
+                <Link href={`/tags/${tag}`}>
                   <a>{tag}</a>
                 </Link>
               </li>
