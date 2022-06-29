@@ -4,6 +4,7 @@ import html from 'remark-html'
 import { remark } from 'remark'
 import matter from 'gray-matter'
 
+import { slugify } from './utils'
 import { getSlug, getAllFilePaths } from '../scripts/shared'
 
 const CONTENT_DIR_PATH = path.join(process.cwd(), 'content')
@@ -88,12 +89,14 @@ function getContent(filePath: string): Content {
   const parsed = matter(content)
   const processed = remark().use(html).processSync(parsed.content)
 
+  const tags = parsed.data.tags.map((tag: string) => slugify(tag))
+
   return {
     slug,
+    tags,
     title: parsed.data.title,
     description: parsed.data.description,
     authors: parsed.data.authors,
-    tags: parsed.data.tags,
     updated: parsed.data.updated,
     body: processed.toString(),
     url: parsed.data.url || null,
