@@ -15,7 +15,6 @@ export default function Show({ slug, content }: { slug: string; content: Content
       <article>
         <div className="text-center mb-8">
           <h1 className="font-bold text-4xl">{title}</h1>
-          <p className="text-md mt-4">{description}</p>
         </div>
         <section>
           <ul className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
