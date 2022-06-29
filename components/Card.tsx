@@ -21,7 +21,7 @@ export default function Card({ title, body, url, cta, variant = 'regular' }: Pro
               {cta}
             </a>
           ) : (
-            <Link href={url}>
+            <Link href={url.startsWith('/') ? url : `/${url}`}>
               <a className={`btn ${variant === 'regular' ? 'btn-primary' : ''}`}>{cta}</a>
             </Link>
           )}

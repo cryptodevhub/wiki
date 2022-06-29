@@ -14,7 +14,7 @@ export default function Content({ content }: { content: Data }) {
               {title}
             </a>
           ) : (
-            <Link href={slug}>
+            <Link href={`/${slug}`}>
               <a>{title}</a>
             </Link>
           )}
@@ -33,7 +33,7 @@ export default function Content({ content }: { content: Data }) {
           ))}
         </ul>
         <div className="card-actions justify-end">
-          <Link href={slug}>
+          <Link href={`/${slug}`}>
             <a className="btn btn-link">Details</a>
           </Link>
         </div>
