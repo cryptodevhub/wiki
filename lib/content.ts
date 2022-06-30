@@ -4,8 +4,7 @@ import html from 'remark-html'
 import { remark } from 'remark'
 import matter from 'gray-matter'
 
-import { slugify } from './utils'
-import { getSlug, getAllFilePaths } from '../scripts/shared'
+import { slugify, getSlug, getAllDistinctTags, getAllFilePaths } from '../scripts/shared'
 
 const CONTENT_DIR_PATH = path.join(process.cwd(), 'content')
 
@@ -62,20 +61,9 @@ export function getAllContentSlugs(): Slug[] {
 }
 
 export function getAllContentTags(): Slug[] {
-  const filePaths = getAllFilePaths(CONTENT_DIR_PATH)
+  const tags = getAllDistinctTags(CONTENT_DIR_PATH)
 
-  const tags = filePaths
-    .map((filePath: string) => getContent(filePath))
-    .reduce<string[]>((accum, content) => {
-      if (content.tags) {
-        accum.push(...content.tags)
-      }
-      return accum
-    }, [])
-
-  const unique = Array.from(new Set(tags))
-
-  return unique.map((tag: string) => ({
+  return tags.map((tag: string) => ({
     params: {
       slug: tag
     }

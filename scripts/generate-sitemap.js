@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 
 const { domain } = require('../core.config')
-const { getSlug, getAllFilePaths } = require('./shared')
+const { getSlug, getAllFilePaths, getAllDistinctTags } = require('./shared')
 
 const PAGES_DIR_PATH = path.join(__dirname, '..', 'pages')
 const PUBLIC_DIR_PATH = path.join(__dirname, '..', 'public')
@@ -46,7 +46,9 @@ function main() {
     return accum
   }, [])
 
-  const paths = [...contentPaths, ...pagePaths]
+  const tagPaths = getAllDistinctTags(CONTENT_DIR_PATH).map((tag) => `tags/${tag}`)
+
+  const paths = [...contentPaths, ...pagePaths, ...tagPaths]
 
   const urls = [
     // Root domain

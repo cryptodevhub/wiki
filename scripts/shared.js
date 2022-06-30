@@ -7,21 +7,9 @@ const matter = require('gray-matter')
 const CONTENT_DIR_PATH = path.join(__dirname, '..', 'content')
 
 function getTagFrequencies() {
-  const filePaths = getAllFilePaths(CONTENT_DIR_PATH)
+  const tags = getAllTags(CONTENT_DIR_PATH)
 
-  const tags = filePaths.map((filePath) => {
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-
-    const frontMatter = matter(fileContent)
-
-    return frontMatter.data.tags
-  })
-
-  const flattened = tags.reduce((accum, tagArray) => {
-    return [...accum, ...tagArray]
-  }, [])
-
-  const frequency = flattened.reduce((accum, tag) => {
+  const frequency = tags.reduce((accum, tag) => {
     if (accum[tag] !== undefined) {
       accum[tag] += 1
     } else {
@@ -31,6 +19,28 @@ function getTagFrequencies() {
   }, {})
 
   return frequency
+}
+
+function getAllTags(dirPath) {
+  const filePaths = getAllFilePaths(dirPath)
+
+  const tags = filePaths
+    .map((filePath) => {
+      const fileContent = fs.readFileSync(filePath, 'utf-8')
+      const frontMatter = matter(fileContent)
+      if (frontMatter.data.tags?.length > 0) {
+        return frontMatter.data.tags
+      }
+    })
+    .reduce((accum, tags) => [...accum, ...tags], [])
+    .map((tag) => slugify(tag))
+
+  return tags
+}
+
+function getAllDistinctTags(dirPath) {
+  const tags = getAllTags(dirPath)
+  return Array.from(new Set(tags))
 }
 
 function getAllFilePaths(dirPath, fileArray = []) {
@@ -52,9 +62,21 @@ function getSlug(filePath) {
   return filePath.split(path.sep).pop().replace(/\.md$/, '')
 }
 
+// Adaption of https://stackoverflow.com/a/1054862
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[-]+/g, '-')
+    .replace(/[^\w-]+/g, '')
+}
+
 module.exports = {
+  slugify,
   getSlug,
+  getAllTags,
   getAllFilePaths,
   getTagFrequencies,
+  getAllDistinctTags,
   CONTENT_DIR_PATH
 }
