@@ -1,25 +1,72 @@
 import Link from 'next/link'
 
+// IMPORTANT: Keep in sync with `Header.tsx`
+
 export default function Footer() {
   return (
     <div className="bg-neutral text-neutral-content">
       <footer className="max-w-7xl mx-auto footer p-10">
         <div>
-          <span className="footer-title">Category 1</span>
-          <Link href="/link-1">
-            <a className="link link-hover">Link 1</a>
+          <span className="footer-title">Learn</span>
+          <Link href="/tags/course">
+            <a className="link link-hover">Courses</a>
+          </Link>
+          <Link href="/tags/tutorial">
+            <a className="link link-hover">Tutorials</a>
+          </Link>
+          <Link href="/tags/guide">
+            <a className="link link-hover">Guides</a>
           </Link>
         </div>
         <div>
-          <span className="footer-title">Category 2</span>
-          <Link href="/link-1">
-            <a className="link link-hover">Link 1</a>
+          <span className="footer-title">Build</span>
+          <Link href="/tags/framework">
+            <a className="link link-hover">Frameworks</a>
+          </Link>
+          <Link href="/tags/library">
+            <a className="link link-hover">Libraries</a>
+          </Link>
+          <Link href="/tags/tool">
+            <a className="link link-hover">Tools</a>
+          </Link>
+          <Link href="/tags/reference">
+            <a className="link link-hover">References</a>
+          </Link>
+          <Link href="/tags/security">
+            <a className="link link-hover">Security</a>
           </Link>
         </div>
         <div>
-          <span className="footer-title">Category 3</span>
-          <Link href="/link-1">
-            <a className="link link-hover">Link 1</a>
+          <span className="footer-title">Career</span>
+          <Link href="/tags/job">
+            <a className="link link-hover">Jobs</a>
+          </Link>
+        </div>
+        <div>
+          <span className="footer-title">Media</span>
+          <Link href="/tags/blog">
+            <a className="link link-hover">Blogs</a>
+          </Link>
+          <Link href="/tags/podcast">
+            <a className="link link-hover">Podcasts</a>
+          </Link>
+          <Link href="/tags/newsletter">
+            <a className="link link-hover">Newsletters</a>
+          </Link>
+        </div>
+        <div>
+          <span className="footer-title">Topics</span>
+          <Link href="/tags/nft">
+            <a className="link link-hover">NFTs</a>
+          </Link>
+          <Link href="/tags/web3">
+            <a className="link link-hover">Web3</a>
+          </Link>
+          <Link href="/tags/defi">
+            <a className="link link-hover">DeFi</a>
+          </Link>
+          <Link href="/tags/metaverse">
+            <a className="link link-hover">Metaverse</a>
           </Link>
         </div>
         <div>
