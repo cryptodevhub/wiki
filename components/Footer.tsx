@@ -1,107 +1,149 @@
 import Link from 'next/link'
-
-// IMPORTANT: Keep in sync with `Header.tsx`
+import { CubeIcon } from '@heroicons/react/outline'
 
 export default function Footer() {
   return (
-    <div className="bg-neutral text-neutral-content">
-      <footer className="max-w-7xl mx-auto footer p-10">
-        <div>
-          <span className="footer-title">Learn</span>
-          <Link href="/tags/course">
-            <a className="link link-hover">Courses</a>
-          </Link>
-          <Link href="/tags/tutorial">
-            <a className="link link-hover">Tutorials</a>
-          </Link>
-          <Link href="/tags/guide">
-            <a className="link link-hover">Guides</a>
-          </Link>
-        </div>
-        <div>
-          <span className="footer-title">Build</span>
-          <Link href="/tags/framework">
-            <a className="link link-hover">Frameworks</a>
-          </Link>
-          <Link href="/tags/library">
-            <a className="link link-hover">Libraries</a>
-          </Link>
-          <Link href="/tags/tool">
-            <a className="link link-hover">Tools</a>
-          </Link>
-          <Link href="/tags/reference">
-            <a className="link link-hover">References</a>
-          </Link>
-          <Link href="/tags/security">
-            <a className="link link-hover">Security</a>
-          </Link>
-        </div>
-        <div>
-          <span className="footer-title">Career</span>
-          <Link href="/tags/job">
-            <a className="link link-hover">Jobs</a>
-          </Link>
-        </div>
-        <div>
-          <span className="footer-title">Media</span>
-          <Link href="/tags/blog">
-            <a className="link link-hover">Blogs</a>
-          </Link>
-          <Link href="/tags/podcast">
-            <a className="link link-hover">Podcasts</a>
-          </Link>
-          <Link href="/tags/newsletter">
-            <a className="link link-hover">Newsletters</a>
-          </Link>
-        </div>
-        <div>
-          <span className="footer-title">Topics</span>
-          <Link href="/tags/nft">
-            <a className="link link-hover">NFTs</a>
-          </Link>
-          <Link href="/tags/web3">
-            <a className="link link-hover">Web3</a>
-          </Link>
-          <Link href="/tags/defi">
-            <a className="link link-hover">DeFi</a>
-          </Link>
-          <Link href="/tags/metaverse">
-            <a className="link link-hover">Metaverse</a>
-          </Link>
-        </div>
-        <div>
-          <span className="footer-title">Social</span>
-          <a
-            className="link link-hover"
-            href="https://twitter.com/cryptodevhub"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Twitter
+    <footer className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+            <CubeIcon className="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" />
+            <span className="ml-3 text-xl">CryptoDevHub</span>
           </a>
-          <a
-            className="link link-hover"
-            href="https://cryptodevhub.io/discord"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Discord
-          </a>
-          <a
-            className="link link-hover"
-            href="https://github.com/cryptodevhub"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+          <p className="mt-2 text-sm text-gray-500">
+            The one-stop-shop for Blockchain- and Crypto developers.
+          </p>
         </div>
-      </footer>
-      <footer className="footer footer-center p-4 border-t border-base-300">
-        <div className="items-center grid-flow-col">
-          <p>Copyright {new Date().getFullYear()}, All Rights Reserved</p>
+        <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+              Learn
+            </h2>
+            <nav className="list-none mb-10">
+              <li>
+                <Link href="/tags/course">
+                  <a className="text-gray-600 hover:text-gray-800">Courses</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/tutorial">
+                  <a className="text-gray-600 hover:text-gray-800">Tutorials</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/guide">
+                  <a className="text-gray-600 hover:text-gray-800">Guides</a>
+                </Link>
+              </li>
+            </nav>
+          </div>
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+              Build
+            </h2>
+            <nav className="list-none mb-10">
+              <li>
+                <Link href="/tags/framework">
+                  <a className="text-gray-600 hover:text-gray-800">Frameworks</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/library">
+                  <a className="text-gray-600 hover:text-gray-800">Libraries</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/tool">
+                  <a className="text-gray-600 hover:text-gray-800">Tools</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/reference">
+                  <a className="text-gray-600 hover:text-gray-800">References</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/security">
+                  <a className="text-gray-600 hover:text-gray-800">Security</a>
+                </Link>
+              </li>
+            </nav>
+          </div>
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+              Career
+            </h2>
+            <nav className="list-none mb-10">
+              <li>
+                <Link href="/tags/job">
+                  <a className="text-gray-600 hover:text-gray-800">Jobs</a>
+                </Link>
+              </li>
+            </nav>
+          </div>
+          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+              Topics
+            </h2>
+            <nav className="list-none mb-10">
+              <li>
+                <Link href="/tags/nft">
+                  <a className="text-gray-600 hover:text-gray-800">NFTs</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/web3">
+                  <a className="text-gray-600 hover:text-gray-800">Web3</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/defi">
+                  <a className="text-gray-600 hover:text-gray-800">DeFi</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/tags/metaverse">
+                  <a className="text-gray-600 hover:text-gray-800">Metaverse</a>
+                </Link>
+              </li>
+            </nav>
+          </div>
         </div>
-      </footer>
-    </div>
+      </div>
+      <div className="bg-gray-100">
+        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p className="text-gray-500 text-sm text-center sm:text-left">
+            © {new Date().getFullYear()} CryptoDevHub —
+            <a
+              href="https://twitter.com/pmmuens"
+              rel="noopener noreferrer"
+              className="text-gray-600 ml-1"
+              target="_blank"
+            >
+              @pmmuens
+            </a>
+          </p>
+          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+            <a
+              href="http://twitter.com/cryptodevhub"
+              rel="noopener noreferrer"
+              className="ml-3 text-gray-500"
+              target="_blank"
+            >
+              <svg
+                fill="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
   )
 }
