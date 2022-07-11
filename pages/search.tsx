@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import ContentCard from '../components/Content'
+import Card from '../components/Card'
 import SearchComponent from '../components/Search'
 import { getAllContent, Content } from '../lib/content'
 
@@ -42,19 +42,23 @@ export default function Search({ index, documents }: Props) {
         title="Search"
         description="Find Blockchain development tutorials, guides, tools, articles and more."
       />
-      <section>
-        <div className="text-center mb-8">
-          <h1 className="font-bold text-5xl md:text-6xl">Search</h1>
-          <p className="text-md mt-2">
-            Find Blockchain development tutorials, guides, tools, articles and more.
-          </p>
+      <section className="text-gray-600 body-font">
+        <div className="flex pt-12 justify-center">
+          <div className="text-center lg:w-2/3 w-full">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+              Search
+            </h1>
+            <p className="mb-8 leading-relaxed">
+              Find Blockchain development tutorials, guides, tools, articles and more.
+            </p>
+          </div>
         </div>
         <SearchComponent q={query} />
         {result.length > 0 && (
-          <ul className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-8 pt-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {result.map((item) => (
               <li key={item.ref}>
-                <ContentCard content={documents[item.ref] as Content} />
+                <Card content={documents[item.ref] as Content} />
               </li>
             ))}
           </ul>
