@@ -26,21 +26,18 @@ export default function Search({ q }: { q?: string }) {
   }
 
   return (
-    <div className="card bg-base-100 shadow-sm">
-      <form onSubmit={handleSubmit}>
-        <div className="card-body">
+    <div className="flex rounded-lg h-full bg-gray-100 p-4">
+      <div className="flex-grow">
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="What are you looking for? (e.g. Smart Contract, Tutorial, Security, ...)"
-            className="p-2 shadow-sm bg-base-200 rounded"
+            className="w-full bg-white rounded border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             value={query}
             onChange={handleChange}
           ></input>
-          <div className="mt-2 card-actions justify-center">
-            <button className="btn">Search</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   )
 }
