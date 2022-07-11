@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import ContentCard from '../components/Content'
+import Card from '../components/Card'
 import { getContentBySlug, getAllContentSlugs, Content, getContentByTags } from '../lib/content'
 
 export default function Show({
@@ -20,10 +20,10 @@ export default function Show({
   if (embedded.length) {
     embedding = (
       <section>
-        <ul className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {embedded.map((content) => (
             <li key={content.slug}>
-              <ContentCard content={content} />
+              <Card content={content} />
             </li>
           ))}
         </ul>
@@ -34,13 +34,12 @@ export default function Show({
   if (related.length) {
     recommendations = (
       <section>
-        <div className="divider my-14" />
         <h2 className="text-center text-2xl mb-6">You might also enjoy</h2>
         <section>
           <ul className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {related.slice(0, 3).map((content) => (
               <li key={content.slug}>
-                <ContentCard content={content} />
+                <Card content={content} />
               </li>
             ))}
           </ul>
@@ -52,19 +51,26 @@ export default function Show({
   return (
     <>
       <NextSeo title={content.title} description={content.description} />
-      <article>
-        <div className="text-center mb-8">
-          <h1 className="font-bold text-4xl">
-            <a href={content.url} target="_blank" rel="noreferrer">
-              {content.title}
-            </a>
-          </h1>
+      <article className="text-gray-600 body-font">
+        <div className="flex pt-12 justify-center">
+          <div className="text-center lg:w-2/3 w-full">
+            <h1 className="title-font sm:text-4xl text-3xl font-medium text-gray-900">
+              <a href={content.url} target="_blank" rel="noreferrer">
+                {content.title}
+              </a>
+            </h1>
+          </div>
         </div>
-        {content.body && (
-          <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: content.body }} />
-        )}
-        {embedding}
-        <div className="flex items-center justify-between my-6">
+        <div className="mb-4">
+          {content.body && (
+            <div
+              className="py-6 prose max-w-none"
+              dangerouslySetInnerHTML={{ __html: content.body }}
+            />
+          )}
+          {embedding}
+        </div>
+        <div className="flex items-center justify-between">
           <ul className="flex">
             {content.authors.map((author, index) => (
               <li key={author}>{(index ? ', ' : '') + author}</li>
@@ -76,7 +82,7 @@ export default function Show({
             {content.tags.map((tag) => (
               <li
                 key={tag}
-                className="mr-2 mb-2 md:mb-0 badge badge-outline hover:badge-primary hover:badge-outline"
+                className="text-sm mr-2 px-2 inline-flex border border-gray-400 rounded-full hover:border-gray-600 mt-2"
               >
                 <Link href={`/tags/${tag}`}>
                   <a>{tag}</a>
@@ -85,17 +91,19 @@ export default function Show({
             ))}
           </ul>
           {content.url && (
-            <a
-              href={content.url}
-              target="_blank"
-              className="btn btn-primary w-full sm:w-auto mt-4 md:mt-2 lg:mt-0"
-              rel="noreferrer"
-            >
-              Go to Website
-            </a>
+            <div className="flex w-full md:w-fit justify-center mt-8 md:mt-0">
+              <a
+                href={content.url}
+                target="_blank"
+                className="inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
+                rel="noreferrer"
+              >
+                Go to Website
+              </a>
+            </div>
           )}
         </div>
-        {recommendations}
+        <div className="my-16">{recommendations}</div>
       </article>
     </>
   )
