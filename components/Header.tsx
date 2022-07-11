@@ -1,290 +1,40 @@
 import Link from 'next/link'
-import { SearchIcon } from '@heroicons/react/outline'
-import { ChevronDownIcon, ChevronRightIcon, MenuIcon } from '@heroicons/react/solid'
-
-// IMPORTANT: Keep in sync with `Footer.tsx`
+import { CubeIcon, SearchIcon } from '@heroicons/react/outline'
 
 export default function Header() {
   return (
-    <div className="bg-base-100 shadow">
-      <header className="max-w-7xl mx-auto navbar">
-        <nav className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <MenuIcon className="h-5 w-5" />{' '}
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50"
-            >
-              <li>
-                <Link href="/start-here">
-                  <a>Start Here</a>
-                </Link>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Learn
-                  <ChevronRightIcon className="fill-current" width={20} height={20} />
-                </a>
-                <ul className="rounded-box p-2 bg-base-100">
-                  <li>
-                    <Link href="/tags/course">
-                      <a>Courses</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/tutorial">
-                      <a>Tutorials</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/guide">
-                      <a>Guides</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Build
-                  <ChevronRightIcon className="fill-current" width={20} height={20} />
-                </a>
-                <ul className="rounded-box p-2 bg-base-100">
-                  <li>
-                    <Link href="/tags/framework">
-                      <a>Frameworks</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/library">
-                      <a>Libraries</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/tool">
-                      <a>Tools</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/reference">
-                      <a>References</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/security">
-                      <a>Security</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Career
-                  <ChevronRightIcon className="fill-current" width={20} height={20} />
-                </a>
-                <ul className="rounded-box p-2 bg-base-100">
-                  <li>
-                    <Link href="/tags/job">
-                      <a>Jobs</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Media
-                  <ChevronRightIcon className="fill-current" width={20} height={20} />
-                </a>
-                <ul className="rounded-box p-2 bg-base-100">
-                  <li>
-                    <Link href="/tags/blog">
-                      <a>Blogs</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/podcast">
-                      <a>Podcasts</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/newsletter">
-                      <a>Newsletters</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  Topics
-                  <ChevronRightIcon className="fill-current" width={20} height={20} />
-                </a>
-                <ul className="rounded-box p-2 bg-base-100">
-                  <li>
-                    <Link href="/tags/nft">
-                      <a>NFTs</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/web3">
-                      <a>Web3</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/defi">
-                      <a>DeFi</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tags/metaverse">
-                      <a>Metaverse</a>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <Link href="/">
-            <a className="btn btn-ghost normal-case text-xl">CryptoDevHub</a>
+    <header className="text-gray-600 body-font">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <Link href="/">
+          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <CubeIcon className="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" />
+            <span className="ml-3 text-xl">CryptoDevHub</span>
+          </a>
+        </Link>
+        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          <Link href="/start-here">
+            <a className="mr-5 hover:text-gray-900">👋 Start Here</a>
+          </Link>
+          <Link href="/learn-blockchain-development">
+            <a className="mr-5 hover:text-gray-900">🧑‍🏫 Learn</a>
+          </Link>
+          <Link href="/blockchain-development-tools">
+            <a className="mr-5 hover:text-gray-900">🧑‍💻 Build</a>
+          </Link>
+          <Link href="/blockchain-developer-jobs">
+            <a className="mr-5 hover:text-gray-900">💰 Jobs</a>
+          </Link>
+          <Link href="/blockchain-media">
+            <a className="mr-5 hover:text-gray-900">📺 Media</a>
           </Link>
         </nav>
-        <nav className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0 z-50">
-            <li>
-              <Link href="/start-here">
-                <a>Start Here</a>
-              </Link>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Learn
-                <ChevronDownIcon className="fill-current" width={20} height={20} />
-              </a>
-              <ul className="rounded-box p-2 bg-base-100">
-                <li>
-                  <Link href="/tags/course">
-                    <a>Courses</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/tutorial">
-                    <a>Tutorials</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/guide">
-                    <a>Guides</a>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Build
-                <ChevronDownIcon className="fill-current" width={20} height={20} />
-              </a>
-              <ul className="rounded-box p-2 bg-base-100">
-                <li>
-                  <Link href="/tags/framework">
-                    <a>Frameworks</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/library">
-                    <a>Libraries</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/tool">
-                    <a>Tools</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/reference">
-                    <a>References</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/security">
-                    <a>Security</a>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Career
-                <ChevronDownIcon className="fill-current" width={20} height={20} />
-              </a>
-              <ul className="rounded-box p-2 bg-base-100">
-                <li>
-                  <Link href="/tags/job">
-                    <a>Jobs</a>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Media
-                <ChevronDownIcon className="fill-current" width={20} height={20} />
-              </a>
-              <ul className="rounded-box p-2 bg-base-100">
-                <li>
-                  <Link href="/tags/blog">
-                    <a>Blogs</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/podcast">
-                    <a>Podcasts</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/newsletter">
-                    <a>Newsletters</a>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li tabIndex={0}>
-              <a>
-                Topics
-                <ChevronDownIcon className="fill-current" width={20} height={20} />
-              </a>
-              <ul className="rounded-box p-2 bg-base-100">
-                <li>
-                  <Link href="/tags/nft">
-                    <a>NFTs</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/web3">
-                    <a>Web3</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/defi">
-                    <a>DeFi</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/tags/metaverse">
-                    <a>Metaverse</a>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <div className="navbar-end">
-          <Link href="/search">
-            <a className="btn btn-ghost btn-circle">
-              <SearchIcon className="h-5 w-5" />{' '}
-            </a>
-          </Link>
-        </div>
-      </header>
-    </div>
+        <Link href="/search">
+          <a className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            <SearchIcon className="w-4 h-4 mr-1" />
+            Search
+          </a>
+        </Link>
+      </div>
+    </header>
   )
 }
