@@ -27,4 +27,6 @@ pnpm run start
 pnpm run lint
 
 pnpm run format
+
+pnpx vercel [--prod] [--force]
 ```
