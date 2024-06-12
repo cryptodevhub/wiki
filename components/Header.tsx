@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CubeIcon, SearchIcon } from '@heroicons/react/outline'
+import { CubeIcon } from '@heroicons/react/outline'
 
 export default function Header() {
   return (
@@ -11,7 +11,7 @@ export default function Header() {
             <span className="ml-3 text-xl">CryptoDevHub</span>
           </a>
         </Link>
-        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+        <nav className="md:ml-auto md:mr-0 flex flex-wrap items-center text-base justify-center">
           <Link href="/start-here">
             <a className="mr-5 hover:text-gray-900">👋 Start Here</a>
           </Link>
@@ -25,15 +25,9 @@ export default function Header() {
             <a className="mr-5 hover:text-gray-900">💰 Jobs</a>
           </Link>
           <Link href="/blockchain-media">
-            <a className="mr-5 hover:text-gray-900">📺 Media</a>
+            <a className="md:mr-0 mr-5 hover:text-gray-900">📺 Media</a>
           </Link>
         </nav>
-        <Link href="/search">
-          <a className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-            <SearchIcon className="w-4 h-4 mr-1" />
-            Search
-          </a>
-        </Link>
       </div>
     </header>
   )

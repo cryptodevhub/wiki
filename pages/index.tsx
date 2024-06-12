@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { GetStaticProps } from 'next'
 
-import Search from '../components/Search'
 import Listing from '../components/Listing'
 import { getContentByTags, Content } from '../lib/content'
 
@@ -46,9 +45,7 @@ export default function Home({
             </div>
           </div>
         </div>
-      </section>
-      <section>
-        <Search />
+        <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
       </section>
       <section>
         <Listing
